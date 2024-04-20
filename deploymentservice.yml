@@ -11,7 +11,7 @@ spec:
   template:
     metadata:
       labels:
-        app: student record database main
+        app: student record database 
     spec:
       containers:
       - name: spring-boot-k8s
