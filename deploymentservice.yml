@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: spring-boot-k8s
-        image: aratimahe/student-management-system-main:latest
+        image: aratimahe/student-management-system-springboot-main:latest
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 8080
