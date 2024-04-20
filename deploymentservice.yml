@@ -18,7 +18,7 @@ spec:
         image: aratimahe/student-management-system-springboot-main:latest
         imagePullPolicy: IfNotPresent
         ports:
-        - containerPort: 8099
+        - containerPort: 8091
 
 ---
 
