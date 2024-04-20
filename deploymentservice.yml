@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: student record database
+  namespace: default
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: student record database
+  template:
+    metadata:
+      labels:
+        app: student record database main
+    spec:
+      containers:
+      - name: spring-boot-k8s
+        image: aratimahe/student-management-system-main:latest
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 8080
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: springboot-k8ssvc
+  namespace: default
+spec:
+  selector:
+    app: spring-boot-k8s
+  ports:
+  - protocol: TCP
+    port: 6099
+    targetPort: 6099
+  type: NodePort
