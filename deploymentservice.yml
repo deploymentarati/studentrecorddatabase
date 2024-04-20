@@ -32,6 +32,6 @@ spec:
     app: spring-boot-k8s
   ports:
   - protocol: TCP
-    port: 6099
-    targetPort: 6099
+    port: 6051
+    targetPort: 6051
   type: NodePort
