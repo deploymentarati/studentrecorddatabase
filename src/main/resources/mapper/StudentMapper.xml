@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="net.shadervertex.sms.mapper.StudentMapper">
+    <resultMap type="net.shadervertex.sms.entity.Student" id="result">
+        <id property="id" column="id" />
+        <result property="firstName" column="first_name" />
+        <result property="lastName" column="last_name" />
+        <result property="email" column="email" />
+    </resultMap>
+
+    <select id="getAllStudents" resultMap="result">
+        SELECT * FROM students
+    </select>
+
+    <insert id="saveStudent" parameterType="net.shadervertex.sms.entity.Student" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO students(first_name, last_name, email)
+        VALUES(#{firstName}, #{lastName}, #{email})
+    </insert>
+
+    <update id="updateStudent" parameterType="net.shadervertex.sms.entity.Student">
+        UPDATE students SET first_name = #{firstName}, last_name = #{lastName}, email = #{email}
+        WHERE id = #{id}
+    </update>
+    
+
+    <delete id="deleteStudentById" parameterType="java.lang.Long">
+        DELETE FROM students WHERE id = #{id}
+    </delete>
+
+    <select id="getStudentById" parameterType="java.lang.Long" resultMap="result">
+        SELECT * FROM students WHERE id = #{id}
+    </select>
+</mapper>
