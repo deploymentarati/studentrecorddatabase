@@ -1,10 +1,10 @@
 # Use an official Maven/Java image as a parent image
 FROM maven:3.8-openjdk-17-slim AS build
 
-# Set the working directory to /app
+# Set the working directory to /student-management-system-springboot-main
 WORKDIR /student-management-system-springboot-main
 
-# Copy the current directory contents into the container at /app
+# Copy the current directory contents into the container at /student-management-system-springboot-main
 COPY . .
 
 # Build the Java application
